@@ -91,3 +91,10 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+
+#yo angular npm bower
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
