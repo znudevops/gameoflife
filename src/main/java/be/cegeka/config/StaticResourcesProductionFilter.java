@@ -1,11 +1,13 @@
 package be.cegeka.config;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Profile;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+@Profile("production")
 public class StaticResourcesProductionFilter implements Filter {
 
     @Override

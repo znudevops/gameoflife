@@ -5,6 +5,7 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.context.embedded.MimeMappings;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
@@ -16,6 +17,7 @@ import java.util.EnumSet;
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
+@Profile("production")
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 
     @Override
