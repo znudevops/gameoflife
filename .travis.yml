@@ -1,3 +1,5 @@
 language: java
 node_js:
     - "4.1"
+notifications:
+  slack: softwaresandbox:YVjkj9ZE2vSIN4atW6z2qyMR
