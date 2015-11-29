@@ -17,12 +17,10 @@ module.exports = function (config) {
             'main/webapp/bower_components/angular/angular.js',
             'main/webapp/bower_components/angular-aria/angular-aria.js',
             'main/webapp/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-            'main/webapp/bower_components/angular-local-storage/dist/angular-local-storage.js',
             'main/webapp/bower_components/angular-resource/angular-resource.js',
             'main/webapp/bower_components/angular-sanitize/angular-sanitize.js',
             'main/webapp/bower_components/bootstrap/dist/js/bootstrap.js',
             'main/webapp/bower_components/json3/lib/json3.js',
-            'main/webapp/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
             'main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
             'main/webapp/scripts/app/app.js',

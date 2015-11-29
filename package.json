@@ -8,8 +8,7 @@
     "src/main/webapp/bower_components"
   ],
   "dependencies": {
-    "bower": "^1.6.3",
-    "protractor": "^2.5.1"
+    "bower": "^1.6.3"
   },
   "devDependencies": {
     "grunt": "0.4.5",
@@ -37,9 +36,7 @@
     "grunt-angular-templates":"0.5.7",
     "load-grunt-tasks": "3.3.0",
     "grunt-karma": "0.12.1",
-    "grunt-protractor-runner": "2.1.0",
     "jasmine-reporters": "^2.0.6",
-    "protractor-jasmine2-screenshot-reporter": "0.1.7",
     "time-grunt": "1.2.2",
     "event-stream": "3.3.2",
     "jshint-stylish": "2.0.1",

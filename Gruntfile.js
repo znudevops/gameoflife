@@ -57,7 +57,7 @@ module.exports = function (grunt) {
             },
             test: {
                 src: 'src/test/javascript/karma.conf.js',
-                exclude: [/angular-i18n/, /angular-scenario/],
+                exclude: [/angular-scenario/],
                 ignorePath: /\.\.\/\.\.\//, // remove ../../ from paths of injected javascripts
                 devDependencies: true,
                 fileTypes: {
@@ -269,22 +269,6 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
-        protractor: {
-            options: {
-                configFile: 'src/test/javascript/protractor.conf.js'
-            },
-            e2e: {
-                options: {
-                    // Stops Grunt process if a test fails
-                    keepAlive: false
-                }
-            },
-            continuous: {
-                options: {
-                    keepAlive: true
-                }
-            }
-        },
         ngAnnotate: {
             dist: {
                 files: [{
@@ -378,6 +362,5 @@ module.exports = function (grunt) {
         'htmlmin'
     ]);
 
-    grunt.registerTask('itest', ['protractor:continuous']);
     grunt.registerTask('default', ['serve']);
 };
