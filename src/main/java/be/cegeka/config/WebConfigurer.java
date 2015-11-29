@@ -1,7 +1,5 @@
 package be.cegeka.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.MimeMappings;
@@ -19,8 +17,6 @@ import java.util.EnumSet;
  */
 @Configuration
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
-
-    private final Logger log = LoggerFactory.getLogger(WebConfigurer.class);
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -46,10 +42,8 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
      */
     private void initStaticResourcesProductionFilter(ServletContext servletContext,
                                                      EnumSet<DispatcherType> disps) {
-
-        log.debug("Registering static resources production Filter");
         FilterRegistration.Dynamic staticResourcesProductionFilter =
-            servletContext.addFilter("staticResourcesProductionFilter",
+            servletContext.addFilter("staticResourcesFilter",
                 new StaticResourcesProductionFilter());
 
         staticResourcesProductionFilter.addMappingForUrlPatterns(disps, true, "/");
