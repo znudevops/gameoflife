@@ -1,5 +1,5 @@
 language: java
-before_script:
+before install:
   - npm install -g npm
 notifications:
   slack:
