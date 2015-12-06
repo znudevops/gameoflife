@@ -3,6 +3,12 @@
 angular.module('gameoflifeApp')
     .controller('MainCtrl', function ($scope, $http, $log) {
 
-        $scope.testVar = 24;
+        $http.get("/status/name").success(function(data){
+            $scope.title = data.name;
+        });
 
+        $http.get("/status/world").success(function(data){
+            $scope.world = data;
+            $log.log($scope.world);
+        });
     });

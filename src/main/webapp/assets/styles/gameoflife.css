@@ -1,0 +1,26 @@
+body {
+    padding: 20px;
+}
+
+.row {
+    margin-bottom: -4px;
+}
+
+.cell-container {
+    display: inline-block;
+}
+
+.cell {
+    height: 15px;
+    width: 15px;
+    margin: 1px;
+    border-radius: 20%;
+}
+
+.true {
+    background-color: black;
+}
+
+.false {
+    background-color: red;
+}
