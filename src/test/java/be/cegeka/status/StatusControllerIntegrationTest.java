@@ -38,6 +38,6 @@ public class StatusControllerIntegrationTest {
     public void testGetApplicationName_ShouldReturnApplicationName() throws Exception {
         mockMvc.perform(get("/status/name"))
             .andExpect(status().isOk())
-            .andExpect(content().string("Game of Life"));
+            .andExpect(content().string("{\"name\": \"Game of Life\"}"));
     }
 }

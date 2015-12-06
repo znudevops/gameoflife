@@ -13,6 +13,6 @@ public class StatusControllerTest {
 
     @Test
     public void testGetApplicationName_ShouldReturnName() throws Exception {
-        assertThat(statusController.getApplicationName()).isEqualTo("Game of Life");
+        assertThat(statusController.getApplicationName()).isEqualTo("{\"name\": \"Game of Life\"}");
     }
 }
