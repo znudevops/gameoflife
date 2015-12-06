@@ -1,11 +1,11 @@
 language: java
 node_js:
     - "4.1"
-addons:
-  apt:
-    packages:
-    - npm
-    - nodejs
+sudo: required
+before install:
+    - sudo apt-get update
+    - sudo apt-get install npm
+    - sudo apt-get install nodejs
 notifications:
   slack:
     secure: AaAfn+03mGBlFWY7Rsj+zDHN/bYogoHSQXqIvWbs/LGoaIaC+rsZEda08/mF3JGSq/qhJ/tkEYtX4lXL6/rPt155wLcHFyinwIfpNtFtnGoQ+erT7k6iIO4wqxRZxrxKID7ZkCGOT6oT7+FqXdSdVvrGsMmt9pH4w9sO5sl8B/pWydQNatow5SlR/DBl/HHNONqVey8WW7AaLCtfeLaOVm+38Sh5ziB1ITV0ocaP4TfT1avi0L+ayoDRB7eHvOebWoKyUCp2A/8rbzCw2/BXyCJG93pvO78JvYwDgNboYe15+h0/nVxMNXbjZCC4qvpq5ntKJivUJdfXz4ZQvqic1foeHx8hEKEmKldhHQI7OC/mxVsqSCOtDXL9tsh7Lu8x17DAGq6arNh1a4+dj924eNlT6RwEZM2yaWp2QTOhz1wyl/wIvw14fMB1MJMrqwtKZkW6AjqS0OSKhOYsWZMsmMYpi2YORsnG1EeCKNekujSnv0vtEzz9+Klk+BdxJOedyC+CHz+Hk2pwQIkQs4POTLeTu7vklrf1NHOIMrp00hshr0PuV8d2YSQursjTtpEc6vV3CG/mpX0L7MizgCTBAzG06SHYMBw7AnkhoLWkQCTMBOU+DJZRBas0U8lEzOMW/X5xvPTVQaO7IRuEa7lIbHqvktD64PJiXJXRakl60uA=
