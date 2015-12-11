@@ -2,12 +2,17 @@
 
 # gameoflife
 
-### Build + run (localhost:8080)
+### Build backend + run (localhost:8080)
 ```
 # ./mvnw spring-boot:run
 ```
 
-### Run + watch front-end changes (localhost:3000)
+### Build frontend + backend + run (localhost:8080)
+```
+# ./mvnw spring-boot:run -Pgrunt
+```
+
+### Build backend + run + watch front-end changes (localhost:3000)
 ```
 # ./mvnw spring-boot:run
 # grunt
