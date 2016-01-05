@@ -1,18 +1,36 @@
 'use strict';
 
 angular.module('gameoflifeApp')
-    .controller('MainCtrl', function ($scope, $http, $log) {
+    .controller('MainCtrl', function ($scope, $http, $log, $interval) {
 
-        $scope.world = [[true, false, false, true, false], [true, false, false, true, false], [true, false, false, true, false], [true, false, false, true, false], [true, false, false, true, false]];
+        var poller;
+
+        $scope.world =
+            [[true, false, false, true, false],
+            [true, false, false, true, false],
+            [true, false, false, true, false],
+            [true, false, false, true, false],
+            [true, false, false, true, false]];
 
         $http.get("/status/name").success(function (data) {
             $scope.title = data.name;
         });
 
-        $http
-            .post("/status/world", $scope.world)
-            .success(function (data) {
-                $scope.world = data;
-                $log.info(data);
-            });
+        $scope.startEvolution = function () {
+            poller = $interval(getNextStatusOfWorld, 1000);
+        };
+
+        $scope.stopEvolution = function () {
+            $interval.cancel(poller);
+        };
+
+        function getNextStatusOfWorld() {
+            $http
+                .post("/status/world", $scope.world)
+                .success(function (data) {
+                    $scope.world = data;
+                    $log.info(data);
+                });
+        }
+
     });
