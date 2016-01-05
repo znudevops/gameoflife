@@ -1,5 +1,12 @@
 body {
     padding: 20px;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    font-family: Menlo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-bottom: 25px;
 }
 
 .row {
@@ -18,9 +25,9 @@ body {
 }
 
 .true {
-    background-color: black;
+    background-color: white;
 }
 
 .false {
-    background-color: red;
+    background-color: cadetblue;
 }
