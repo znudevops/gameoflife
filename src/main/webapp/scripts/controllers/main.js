@@ -7,10 +7,10 @@ angular.module('gameoflifeApp')
 
         $scope.world =
             [[true, false, false, true, false],
-            [true, false, false, true, false],
-            [true, false, false, true, false],
-            [true, false, false, true, false],
-            [true, false, false, true, false]];
+                [true, false, false, true, false],
+                [true, false, false, true, false],
+                [true, false, false, true, false],
+                [true, false, false, true, false]];
 
         $http.get("/status/name").success(function (data) {
             $scope.title = data.name;
@@ -31,6 +31,10 @@ angular.module('gameoflifeApp')
                     $scope.world = data;
                     $log.info(data);
                 });
-        }
+        };
+
+        $scope.clickCell = function (cell) {
+            cell = !cell;
+        };
 
     });
