@@ -17,14 +17,14 @@ angular.module('gameoflifeApp')
         });
 
         $scope.startEvolution = function () {
-            poller = $interval(getNextStatusOfWorld, 1000);
+            poller = $interval($scope.getNextStatusOfWorld, 1000);
         };
 
         $scope.stopEvolution = function () {
             $interval.cancel(poller);
         };
 
-        function getNextStatusOfWorld() {
+        $scope.getNextStatusOfWorld = function getNextStatusOfWorld() {
             $http
                 .post("/status/world", $scope.world)
                 .success(function (data) {

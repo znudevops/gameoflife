@@ -1,13 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid text-center">
 
     <div class="text-center">
         <h1>{{title}}</h1>
     </div>
 
-    <div class="row">
-        <button class="btn btn-success">Start</button>
-        <button class="btn btn-danger">Stop</button>
-        <button class="btn btn-default">Step</button>
+    <div class="row btn-group">
+        <button class="btn btn-success" ng-click="startEvolution()">Start</button>
+        <button class="btn btn-danger" ng-click="stopEvolution()">Stop</button>
+        <button class="btn btn-default" ng-click="getNextStatusOfWorld()">Step</button>
     </div>
 
     <div class="row">
