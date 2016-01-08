@@ -34,8 +34,8 @@ public class StatusController {
     public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> oldWorld){
         logger.info(oldWorld);
         this.oldWorld = oldWorld;
-        List<Boolean> row = newArrayList(false, true, true, false, false);
-        world = newArrayList(row, row, row, row, row, row, row);
+        List<Boolean> row = newArrayList(false, true, true, false, false, false, true, true, false, false, false, true, true, false, false, false, true, true, false, false);
+        world = newArrayList(row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row);
         return world;
     }
 }

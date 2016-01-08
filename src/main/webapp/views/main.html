@@ -1,14 +1,14 @@
 <div class="container-fluid text-center">
 
-    <div class="text-center">
-        <h1>{{title}}</h1>
-    </div>
+    <h1>{{title}}</h1>
 
     <div class="row btn-group">
         <button class="btn btn-success" ng-click="startEvolution()">Start</button>
         <button class="btn btn-danger" ng-click="stopEvolution()">Stop</button>
         <button class="btn btn-default" ng-click="getNextStatusOfWorld()">Step</button>
     </div>
+
+    <input type="number" ng-model="worldDimension" name="worldDimension" min="0" required="string"/>
 
     <div class="row">
         <div class="board">

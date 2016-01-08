@@ -1,5 +1,4 @@
 body {
-    padding: 20px;
     background-color: black;
 }
 
@@ -9,19 +8,22 @@ h1 {
     padding-bottom: 25px;
 }
 
-.row-in-world {
-    margin-bottom: -4px;
-}
-
 .cell-container {
     display: inline-block;
 }
 
+.board {
+    padding-top: 25px;
+}
+
 .cell {
-    height: 15px;
-    width: 15px;
-    margin: 1px;
+    height: 10px;
+    width: 10px;
     border-radius: 20%;
+}
+
+.row-in-world{
+    margin: -10px;
 }
 
 .true {
@@ -30,4 +32,8 @@ h1 {
 
 .false {
     background-color: cadetblue;
+}
+
+.btn-group {
+    padding-right: 15px;
 }
