@@ -37,3 +37,7 @@ h1 {
 .btn-group {
     padding-right: 15px;
 }
+
+.dimension-input {
+    width: 1.3cm;
+}
