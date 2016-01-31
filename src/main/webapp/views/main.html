@@ -2,13 +2,28 @@
 
     <h1>{{title}}</h1>
 
-    <div class="row btn-group">
-        <button class="btn btn-primary" ng-click="startEvolution()">Start</button>
-        <button class="btn btn-danger" ng-click="stopEvolution()">Stop</button>
-        <button class="btn btn-default" ng-click="getNextStatusOfWorld()">Step</button>
-    </div>
+    <div class="row">
+        <div class="btn-group col-md-offset-3 col-md-3">
+            <button type="button" class="btn btn-primary" ng-click="startEvolution()">Start
+                <span class="glyphicon glyphicon-play"></span>
+            </button>
 
-    <input class="dimension-input" type="number" ng-model="worldDimension" ng-change="dimensionChanged(worldDimension)" name="worldDimension" min="0" max="999" required="string"/>
+            <button type="button" class="btn btn-danger" ng-click="stopEvolution()">Stop
+                <span class="glyphicon glyphicon-stop"></span>
+            </button>
+
+            <button type="button" class="btn btn-default" ng-click="getNextStatusOfWorld()">Step
+                <span class="glyphicon glyphicon-step-forward"></span>
+            </button>
+        </div>
+
+        <div class="col-md-offset-7 col-md-2 input-group">
+            <span class="input-group-addon" id="basic-addon1">Dimension</span>
+            <input class="form-control" type="number" ng-model="worldDimension"
+                   ng-change="dimensionChanged(worldDimension)" name="worldDimension" min="0" max="999"
+                   required="string"/>
+        </div>
+    </div>
 
     <div class="row">
         <div class="board">
