@@ -8,7 +8,7 @@
         <button class="btn btn-default" ng-click="getNextStatusOfWorld()">Step</button>
     </div>
 
-    <input class="dimension-input" type="number" ng-model="worldDimension" name="worldDimension" min="0" required="string"/>
+    <input class="dimension-input" type="number" ng-model="worldDimension" ng-change="dimensionChanged(worldDimension)" name="worldDimension" min="0" max="999" required="string"/>
 
     <div class="row">
         <div class="board">

@@ -5,12 +5,6 @@ angular.module('gameoflifeApp')
 
         var poller;
 
-        $scope.world =
-            [[true, false, false, true, false],
-                [true, false, false, true, false],
-                [true, false, false, true, false],
-                [true, false, false, true, false],
-                [true, false, false, true, false]];
 
         $http.get("/status/name").success(function (data) {
             $scope.title = data.name;
@@ -36,5 +30,12 @@ angular.module('gameoflifeApp')
         $scope.clickCell = function (cell) {
             cell = !cell;
         };
+
+        $scope.dimensionChanged = function (dimension) {
+            $log.info("Dimension: " + dimension);
+            $scope.world = new Array(dimension).fill(new Array(dimension).fill(false));
+        };
+
+        $scope.world = $scope.dimensionChanged(10);
 
     });
