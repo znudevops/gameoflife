@@ -19,6 +19,7 @@ angular.module('gameoflifeApp')
         };
 
         $scope.getNextStatusOfWorld = function getNextStatusOfWorld() {
+            $log.info($scope.world);
             $http
                 .post("/status/world", $scope.world)
                 .success(function (data) {
@@ -27,13 +28,20 @@ angular.module('gameoflifeApp')
                 });
         };
 
-        $scope.clickCell = function (cell) {
-            cell = !cell;
+        $scope.toggleCell = function (row, column) {
+            $log.info($scope.world);
+            $scope.world[column][row] = !$scope.world[column][row];
         };
 
         $scope.dimensionChanged = function (dimension) {
-            $log.info("Dimension: " + dimension);
-            $scope.world = new Array(dimension).fill(new Array(dimension).fill(false));
+            //$scope.world = new Array(dimension).fill(new Array(dimension).fill(false));
+            $scope.world = [];
+            for (var i = 0; i < dimension; i++) {
+                $scope.world[i] = [];
+                for (var j = 0; j < dimension; j++) {
+                    $scope.world[i][j] = false;
+                }
+            }
         };
 
         $scope.world = $scope.dimensionChanged(10);
