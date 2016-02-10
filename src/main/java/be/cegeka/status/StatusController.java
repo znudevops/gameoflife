@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static jersey.repackaged.com.google.common.collect.Lists.newArrayList;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
@@ -20,9 +19,6 @@ public class StatusController {
 
     private static Logger logger = Logger.getLogger(StatusController.class);
 
-    private List<List<Boolean>> world;
-    private List<List<Boolean>> oldWorld;
-
     @RequestMapping(value = "/name")
     @ResponseBody
     public String getApplicationName(){
@@ -31,11 +27,8 @@ public class StatusController {
 
     @RequestMapping(value = "/world", method = POST)
     @ResponseBody
-    public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> oldWorld){
-        logger.info(oldWorld);
-        this.oldWorld = oldWorld;
-        List<Boolean> row = newArrayList(false, true, true, false, false, false, true, true, false, false, false, true, true, false, false, false, true, true, false, false);
-        world = newArrayList(row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row, row);
-        return world;
+    public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> currentWorld){
+        logger.info(currentWorld);
+        return currentWorld;
     }
 }
