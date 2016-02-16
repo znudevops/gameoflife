@@ -61,6 +61,10 @@ angular.module('gameoflifeApp')
             $scope.worldDimension = arr.length;
         };
 
-        $scope.initializeWorld(blinker());
+        $scope.initializeBlinker = function () {
+            $scope.initializeWorld(blinker());
+        };
+
+        $scope.initializeWorld(emptyWorld(10));
 
     });
