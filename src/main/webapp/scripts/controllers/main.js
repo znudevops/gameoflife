@@ -21,7 +21,7 @@ angular.module('gameoflifeApp')
         $scope.getNextStatusOfWorld = function getNextStatusOfWorld() {
             $log.info($scope.world);
             $http
-                .post("/status/world", $scope.world)
+                .post("/gameoflife/world", $scope.world)
                 .success(function (data) {
                     $scope.world = data;
                     $log.info(data);

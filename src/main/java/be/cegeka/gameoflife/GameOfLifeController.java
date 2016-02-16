@@ -1,4 +1,4 @@
-package be.cegeka.status;
+package be.cegeka.gameoflife;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,17 +10,17 @@ import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-/**
- * Created by fransg on 02/12/15.
- */
 @RestController
-@RequestMapping(value = "/status")
-public class StatusController {
+@RequestMapping(value = "/gameoflife")
+public class GameOfLifeController {
 
-    @RequestMapping(value = "/name")
+    private static Logger logger = Logger.getLogger(GameOfLifeController.class);
+
+    @RequestMapping(value = "/world", method = POST)
     @ResponseBody
-    public String getApplicationName(){
-        return "{\"name\": \"Game of Life\"}";
+    public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> currentWorld){
+        //logger.info(currentWorld);
+        return currentWorld;
     }
 
 }
