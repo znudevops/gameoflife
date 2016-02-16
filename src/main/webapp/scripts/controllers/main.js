@@ -44,7 +44,7 @@ angular.module('gameoflifeApp')
             return arr;
         }
 
-        function blinker() {
+        $scope.blinker = function() {
             return [
                 [false, false, false],
                 [true, true, true],
@@ -59,10 +59,6 @@ angular.module('gameoflifeApp')
         $scope.initializeWorld = function (arr) {
             $scope.world = arr;
             $scope.worldDimension = arr.length;
-        };
-
-        $scope.initializeBlinker = function () {
-            $scope.initializeWorld(blinker());
         };
 
         $scope.initializeWorld(emptyWorld(10));
