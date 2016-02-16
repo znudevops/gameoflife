@@ -50,7 +50,32 @@ angular.module('gameoflifeApp')
                 [true, true, true],
                 [false, false, false]
             ];
-        }
+        };
+
+        $scope.pulsar = function() {
+            var D = false;
+            var L = true;
+
+            return [
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D],
+                [D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D]
+            ];
+        };
 
         $scope.dimensionChanged = function (dimension) {
             initializeWorld(emptyWorld(dimension));
