@@ -44,6 +44,7 @@ angular.module('gameoflifeApp')
             }
         };
 
-        $scope.world = $scope.dimensionChanged(10);
+        $scope.worldDimension = 10;
+        $scope.dimensionChanged(10);
 
     });
