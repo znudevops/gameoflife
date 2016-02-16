@@ -33,18 +33,34 @@ angular.module('gameoflifeApp')
             $scope.world[column][row] = !$scope.world[column][row];
         };
 
-        $scope.dimensionChanged = function (dimension) {
-            //$scope.world = new Array(dimension).fill(new Array(dimension).fill(false));
-            $scope.world = [];
+        function emptyWorld(dimension) {
+            var arr = [];
             for (var i = 0; i < dimension; i++) {
-                $scope.world[i] = [];
+                arr[i] = [];
                 for (var j = 0; j < dimension; j++) {
-                    $scope.world[i][j] = false;
+                    arr[i][j] = false;
                 }
             }
+            return arr;
+        }
+
+        function blinker() {
+            return [
+                [false, false, false],
+                [true, true, true],
+                [false, false, false]
+            ];
+        }
+
+        $scope.dimensionChanged = function (dimension) {
+            initializeWorld(emptyWorld(dimension));
         };
 
-        $scope.worldDimension = 10;
-        $scope.dimensionChanged(10);
+        $scope.initializeWorld = function (arr) {
+            $scope.world = arr;
+            $scope.worldDimension = arr.length;
+        };
+
+        $scope.initializeWorld(blinker());
 
     });
