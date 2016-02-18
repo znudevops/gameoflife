@@ -78,7 +78,7 @@ angular.module('gameoflifeApp')
         };
 
         $scope.dimensionChanged = function (dimension) {
-            initializeWorld(emptyWorld(dimension));
+            $scope.initializeWorld(emptyWorld(dimension));
         };
 
         $scope.initializeWorld = function (arr) {
