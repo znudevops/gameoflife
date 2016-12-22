@@ -22,26 +22,21 @@ public class GameOfLifeController {
             nextWorld.add(new ArrayList<>());
             for (int column = 0; column < currentWorld.get(row).size(); column++) {
                 int deadNeighbours = countDeadNeighbours(currentWorld, row, column);
-                nextWorld.get(row).add(this.isCellAliveInNextIteration(deadNeighbours, currentWorld.get(row).get(column)));
+                nextWorld.get(row).add(isCellAliveInNextIteration(deadNeighbours, currentWorld.get(row).get(column)));
             }
         }
         return nextWorld;
-    }
-
-    private List<List<Boolean>> buildNewWorld() {
-        ArrayList<List<Boolean>> result = new ArrayList<>();
-        return result;
     }
 
     public int countDeadNeighbours(List<List<Boolean>> world, int x, int y) {
         int numberOfDeadNeighbours = 0;
         for (int row = x - 1; row <= x + 1; row++) {
             for (int column = y - 1; column <= y + 1; column++) {
-                if (row < 0 || column < 0 || row >= world.size() || column >= world.size()) {
+                if (belowLowerBoundOfWorld(world, row, column)) {
                     numberOfDeadNeighbours++;
                 } else {
                     boolean cell = world.get(row).get(column);
-                    if (!cell && !(row == x && column == y)) {
+                    if (dead(cell) && isNotTheMiddleCell(x, y, row, column)) {
                         numberOfDeadNeighbours++;
                     }
                 }
@@ -51,18 +46,48 @@ public class GameOfLifeController {
     }
 
     public boolean isCellAliveInNextIteration(int numberOfDeadNeighbours, boolean cell) {
-        if (numberOfDeadNeighbours > 6 && cell) {
-            // underpopulation
+        if (underpopulation(numberOfDeadNeighbours, cell)) {
             return false;
-        } else if ((numberOfDeadNeighbours == 5 || numberOfDeadNeighbours == 6) && cell) {
-            // sustenance
+        } else if (sustenance(numberOfDeadNeighbours, cell)) {
             return true;
-        } else if (numberOfDeadNeighbours < 5 && cell) {
-            // overpopulation
+        } else if (overpopulation(numberOfDeadNeighbours, cell)) {
             return false;
-        } else if (!cell && numberOfDeadNeighbours == 5) {
+        } else if (reproduction(numberOfDeadNeighbours, cell)) {
             return true;
         }
         return cell;
+    }
+
+    private boolean isNotTheMiddleCell(int x, int y, int row, int column) {
+        return !(row == x && column == y);
+    }
+
+    private boolean dead(boolean cell) {
+        return !cell;
+    }
+
+    private boolean belowLowerBoundOfWorld(List<List<Boolean>> world, int row, int column) {
+        return row < 0 || column < 0 || row >= world.size() || column >= world.size();
+    }
+
+    private List<List<Boolean>> buildNewWorld() {
+        ArrayList<List<Boolean>> result = new ArrayList<>();
+        return result;
+    }
+
+    private boolean reproduction(int numberOfDeadNeighbours, boolean cell) {
+        return dead(cell) && numberOfDeadNeighbours == 5;
+    }
+
+    private boolean overpopulation(int numberOfDeadNeighbours, boolean cell) {
+        return numberOfDeadNeighbours < 5 && cell;
+    }
+
+    private boolean sustenance(int numberOfDeadNeighbours, boolean cell) {
+        return (numberOfDeadNeighbours == 5 || numberOfDeadNeighbours == 6) && cell;
+    }
+
+    private boolean underpopulation(int numberOfDeadNeighbours, boolean cell) {
+        return numberOfDeadNeighbours > 6 && cell;
     }
 }
