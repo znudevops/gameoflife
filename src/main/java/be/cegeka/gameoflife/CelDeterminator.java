@@ -3,11 +3,17 @@ package be.cegeka.gameoflife;
 import static be.cegeka.gameoflife.Cel.DEAD;
 import static be.cegeka.gameoflife.Cel.LIVING;
 
-public class StatusDeterminator {
+public class CelDeterminator {
 
-    public Cel determineNextStatus(int amountOfLivingNeighbors) {
+    public Cel determineNextStatus(Cel cel, int amountOfLivingNeighbors) {
         validateAmountOfLivingNeigbors(amountOfLivingNeighbors);
-        return amountOfLivingNeighbors == 2 || amountOfLivingNeighbors == 3 ? LIVING : DEAD;
+        if (amountOfLivingNeighbors == 2) {
+            return cel;
+        }
+        if(amountOfLivingNeighbors == 3) {
+            return LIVING;
+        }
+        return DEAD;
     }
 
     private void validateAmountOfLivingNeigbors(int amountOfLivingNeighbors) {

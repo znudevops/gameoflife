@@ -24,7 +24,7 @@ public class GameOfLifeController {
         for(int row = 0; row < currentWorld.size(); row++) {
             List<Boolean> newRow = new ArrayList<>();
             for(int column = 0; column < currentWorld.get(row).size(); column++) {
-                newRow.add(new StatusDeterminator().determineNextStatus(new Neighbourhood(currentWorld, new Location(row, column)).getAmountOfLivingNeigbours()).getCelValue());
+                newRow.add(new CelDeterminator().determineNextStatus(Cel.of(currentWorld.get(row).get(column)), new Neighbourhood(currentWorld, new Location(row, column)).getAmountOfLivingNeigbours()).getCelValue());
             }
             newWorld.add(newRow);
         }
