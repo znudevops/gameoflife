@@ -1,11 +1,11 @@
 package be.cegeka.gameoflife;
 
-import static be.cegeka.gameoflife.Status.DEAD;
-import static be.cegeka.gameoflife.Status.LIVING;
+import static be.cegeka.gameoflife.Cel.DEAD;
+import static be.cegeka.gameoflife.Cel.LIVING;
 
 public class StatusDeterminator {
 
-    public Status determineNextStatus(int amountOfLivingNeighbors) {
+    public Cel determineNextStatus(int amountOfLivingNeighbors) {
         validateAmountOfLivingNeigbors(amountOfLivingNeighbors);
         return amountOfLivingNeighbors == 2 || amountOfLivingNeighbors == 3 ? LIVING : DEAD;
     }

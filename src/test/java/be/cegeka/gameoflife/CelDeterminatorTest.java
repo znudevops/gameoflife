@@ -3,10 +3,10 @@ package be.cegeka.gameoflife;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static be.cegeka.gameoflife.Status.DEAD;
-import static be.cegeka.gameoflife.Status.LIVING;
+import static be.cegeka.gameoflife.Cel.DEAD;
+import static be.cegeka.gameoflife.Cel.LIVING;
 
-public class StatusDeterminatorTest {
+public class CelDeterminatorTest {
 
     @Test
     public void GivenZeroLivingNeighbor_WhenDetermineNextStatus_ThenNextStatusIsDead() {
