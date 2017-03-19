@@ -106,7 +106,7 @@ public class Neighbourhood {
         return new Location(location.getRowNummer() + 1, location.getColumnNummer() + 1);
     }
 
-    public long getAmountOfLivingNeigbours() {
-        return neighbors.stream().filter(neighbor -> neighbor == Cel.LIVING).count();
+    public int getAmountOfLivingNeigbours() {
+        return (int) neighbors.stream().filter(neighbor -> neighbor == Cel.LIVING).count();
     }
 }
