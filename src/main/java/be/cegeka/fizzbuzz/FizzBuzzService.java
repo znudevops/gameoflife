@@ -11,7 +11,7 @@ public class FizzBuzzService {
 //            .toArray(new Integer[sequenceNumber]);
 
         Integer[] fizzBuzzSequence = new Integer[sequenceNumber];
-        for(int i = 0; i <= sequenceNumber; i++) {
+        for(int i = 0; i < sequenceNumber; i++) {
             fizzBuzzSequence[i] = i+1;
         }
         return fizzBuzzSequence;
