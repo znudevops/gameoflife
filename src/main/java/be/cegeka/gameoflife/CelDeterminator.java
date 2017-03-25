@@ -1,19 +1,75 @@
 package be.cegeka.gameoflife;
 
-import static be.cegeka.gameoflife.Cel.DEAD;
-import static be.cegeka.gameoflife.Cel.LIVING;
+import java.util.Arrays;
+import java.util.Collection;
 
 public class CelDeterminator {
 
-    public Cel determineNextStatus(Cel cel, int amountOfLivingNeighbors) {
-        validateAmountOfLivingNeigbors(amountOfLivingNeighbors);
-        if (amountOfLivingNeighbors == 2) {
+    private interface Rule {
+        boolean applies(Cel cel, int amountOfLivingNeigbors);
+
+        Cel getResult(Cel cel);
+    }
+
+    private class UnderPopulation implements Rule {
+
+        @Override
+        public boolean applies(Cel cel, int amountOfLivingNeigbors) {
+            return amountOfLivingNeigbors < 2;
+        }
+
+        @Override
+        public Cel getResult(Cel cel) {
+            return Cel.DEAD;
+        }
+    }
+
+    private class OverPopulation implements Rule {
+
+        @Override
+        public boolean applies(Cel cel, int amountOfLivingNeigbors) {
+            return amountOfLivingNeigbors > 3;
+        }
+
+        @Override
+        public Cel getResult(Cel cel) {
+            return Cel.DEAD;
+        }
+    }
+
+    private class Sustenance implements Rule {
+
+        @Override
+        public boolean applies(Cel cel, int amountOfLivingNeigbors) {
+            return amountOfLivingNeigbors == 2;
+        }
+
+        @Override
+        public Cel getResult(Cel cel) {
             return cel;
         }
-        if(amountOfLivingNeighbors == 3) {
-            return LIVING;
+    }
+
+    private class Reproduction implements Rule {
+
+        @Override
+        public boolean applies(Cel cel, int amountOfLivingNeigbors) {
+            return amountOfLivingNeigbors == 3;
         }
-        return DEAD;
+
+        @Override
+        public Cel getResult(Cel cel) {
+            return Cel.LIVING;
+        }
+    }
+
+    private Collection<Rule> rules = Arrays.asList(new UnderPopulation(), new OverPopulation(), new Reproduction(), new Sustenance());
+
+
+
+    public Cel determineNextStatus(Cel cel, int amountOfLivingNeighbors) {
+        validateAmountOfLivingNeigbors(amountOfLivingNeighbors);
+        return rules.stream().filter(rule -> rule.applies(cel, amountOfLivingNeighbors)).findFirst().get().getResult(cel);
     }
 
     private void validateAmountOfLivingNeigbors(int amountOfLivingNeighbors) {
