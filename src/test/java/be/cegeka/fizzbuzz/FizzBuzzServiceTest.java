@@ -23,6 +23,13 @@ public class FizzBuzzServiceTest {
     }
 
     @Test
+    public void fizzBuzz() {
+        Integer[] fizzBuzzSequence = fizzBuzzService.fizzBuzz(2);
+        assertThat(fizzBuzzSequence).hasSize(2);
+        assertThat(fizzBuzzSequence).containsExactly(1, 2);
+    }
+
+    @Test
     public void fizzBuzz_givenSequenceNumberLowerOrEqualThan1_thenThrowException() {
 //        expectedException.expect(IllegalArgumentException.class);
 //        expectedException.expectMessage("SequenceNumber should be higher than 1");
