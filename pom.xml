@@ -21,10 +21,10 @@
       <id>nexus-snapshot</id>
       <url>http://18.218.200.94:8081/nexus/content/repositories/snapshot</url>
    </snapshotRepository>
-    <Repository>
+    <repository>
       <id>nexus-release</id>
       <url>http://18.218.200.94:8081/nexus/content/repositories/releases</url>
-    </Repository>
+    </repository>
 </distributionManagement>
 
     <prerequisites>
