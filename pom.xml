@@ -19,6 +19,17 @@
         <maven>3.0.0</maven>
     </prerequisites>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshot</id>
+            <url>http://13.59.50.202:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-release</id>
+            <url>http://13.59.50.202:8081/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+            
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
