@@ -10,6 +10,8 @@
         <relativePath/>
     </parent>
 
+    
+    
     <groupId>be.cegeka</groupId>
     <artifactId>gameoflife</artifactId>
     <version>0.0.1</version>
